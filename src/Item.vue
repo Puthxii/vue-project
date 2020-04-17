@@ -7,10 +7,12 @@
         <div class="card-subtitle">{{ des }}</div>
         <div class="card-text">{{ price | dollars }}</div>
         <div class="row justify-content-end">
-          <button class="btn btn-primary">Add to cart</button>
+        <button class="btn btn-primary" @click="addToCart(invId)">Add to cart</button>        
         </div>
       </div>
     </div>
+
+    
   </div>
 </template>
 
@@ -19,6 +21,11 @@
 export default {
     name: 'item',
     props: ['invId', 'name', 'des', 'image', 'price'],
+    methods: {
+        addToCart(invId) {
+        this.$store.dispatch('addToCart', invId);
+        },
+    },
     filters: {
         dollars: num => `$${num / 100}`,
     },
