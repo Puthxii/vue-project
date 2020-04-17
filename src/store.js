@@ -17,7 +17,7 @@ export default new Vuex.Store({
           des: "Top Recommended! Unique Thai noodle from Nonthaburi. Serve with Padthai traditional sauce.",
           image: 'https://images.snpfood.com/image/upload/c_fill,h_300,q_auto,w_485/v1/brands/15/inventory/products/16259--L0wIOW', price: 445 },
         { invId: 4, name: 'Strawberry Jelio Smoothie', 
-          des: "Strawberry Jelio Smoothie. With the additional fresh Strawberry & Yogurt whipped cream.",
+          des: "Strawberry Jelio Smoothie. With the additional fresh Strawberry & Yogurt whipped cream vanilla honey.",
           image: 'https://images.snpfood.com/image/upload/c_fill,h_300,q_auto,w_485/v1/brands/15/inventory/products/24878--kFd3xN', price: 393 },
     ],
     inCart: [],

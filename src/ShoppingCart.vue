@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="btn btn-primary" data-toggle="modal" data-target="#shoppingCart">Cart ({{ numInCart }})</button>
+    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#shoppingCart">Cart ({{ numInCart }})</button>
     <div id="shoppingCart" class="modal fade">
       <!-- The rest of the modal will go here -->
         <div class="modal-dialog">
