@@ -12,12 +12,20 @@
                 </button>
             </div>
             <div class="modal-body">
-                Shopping cart items will go here.
                 <table class="table">
                     <tbody>
-                        <tr v-for="item in cart">
+                        <tr v-for="(item, index) in cart">
                         <td>{{ item.name }}</td>
                         <td>{{ item.price | dollars }}</td>
+                        <td>
+                          <button class="btn btn-sm btn-danger" @click="removeFromCart(index)">&times;</button>
+                          
+                        </td>
+                        </tr>
+                        <tr>
+                          <th></th>
+                          <th>{{ total | dollars }}</th>
+                          <th></th>
                         </tr>
                     </tbody>
                 </table>
@@ -33,6 +41,8 @@
 </template>
 
 <script>
+import { dollars } from './filters';
+
 export default {
   name: 'shoppingCart',
   computed: {
@@ -45,6 +55,18 @@ export default {
         });
       });
     },
+    total() {
+      return this.cart.reduce((acc, cur) => acc + cur.price, 0);
+    },
   },
+  filters: {
+    dollars,
+  },
+  methods: {
+    removeFromCart(index) {
+      this.$store.dispatch('removeFromCart', index);
+    },
+  },
+  
 };
 </script>

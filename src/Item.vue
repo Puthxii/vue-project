@@ -17,8 +17,10 @@
 </template>
 
 <script>
+import { dollars } from './filters';
 
 export default {
+
     name: 'item',
     props: ['invId', 'name', 'des', 'image', 'price'],
     methods: {
@@ -27,7 +29,7 @@ export default {
         },
     },
     filters: {
-        dollars: num => `$${num / 100}`,
+      dollars, // Replaces old filter definition
     },
 
     };
