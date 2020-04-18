@@ -1,12 +1,12 @@
 <template>
-  <div>
-    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#shoppingCart">Cart ({{ numInCart }})</button>
+  <div> 
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#shoppingCart">Cart <span class="badge badge-light">{{ numInCart }} ({{ total | dollars }})</span></button>
     <div id="shoppingCart" class="modal fade">
       <!-- The rest of the modal will go here -->
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Shopping cart</h5>
+                <h5 class="modal-title text-danger">Shopping cart</h5>
                 <button class="close" data-dismiss="modal">
                 &times;
                 </button>
@@ -31,8 +31,8 @@
                 </table>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" data-dismiss="modal">Keep shopping</button>
-                <button class="btn btn-primary">Check out</button>
+                <button class="btn btn-light" data-dismiss="modal">Keep shopping</button>
+                <button class="btn btn-danger" @click="open()">Check out</button>    <!-- fix -->
             </div>
             </div>
         </div>
@@ -41,6 +41,9 @@
 </template>
 
 <script>
+import Vue from 'vue';
+import VueToast from 'vue-toast-notification';
+import './assets/theme-default.css';
 import { dollars } from './filters';
 
 export default {
@@ -66,6 +69,15 @@ export default {
     removeFromCart(index) {
       this.$store.dispatch('removeFromCart', index);
     },
+    open () { //fix
+            this.$toast.open({
+                message: "Please login to checkout",
+                type: "warning",
+                duration: 4000,
+                dismissible: true,
+                position: "top"
+        })
+        }
   },
   
 };
