@@ -7,8 +7,7 @@
         <div class="card-subtitle font-weight-light">{{ des }}</div>
         <div class="card-text text-danger font-weight-bold">{{ price | dollars }}</div>
         <div class="row justify-content-end">
-        <button class="btn btn-danger" @click="addToCart(invId) | open() ">Add to cart</button>      <!-- fix -->
-         
+        <button class="btn btn-danger" @click="addToCart(invId) | opens()">Add to cart</button>      <!-- fix -->
         </div>
       </div>
     </div>
@@ -22,6 +21,10 @@ import Vue from 'vue';
 import VueToast from 'vue-toast-notification';
 import './assets/theme-default.css';
 import { dollars } from './filters';
+import Loading from 'vue-loading-overlay';
+import 'vue-loading-overlay/dist/vue-loading.css';
+
+Vue.use(Loading);
 
 export default {
 
@@ -30,18 +33,6 @@ export default {
     methods: {
         addToCart(invId) {
           this.$store.dispatch('addToCart', invId, );
-          // let found = false;
-          // //Add the item or increase qty
-          // let itemInCart = this.cartItems.filter(item => item.id === invId.id);
-          // let isItemInCart = itemInCart.length > 0;
-
-          // if (isItemInCart === false) {
-          //   this.cartItems.push(Vue.util.extend({}, itemToAdd));
-          // } else {
-          //   itemInCart[0].qty += itemToAdd.qty;
-          // }
-			    // itemToAdd.qty = 1;
-          
         },
         open () { //fix
             this.$toast.open({
@@ -51,8 +42,27 @@ export default {
                 dismissible: true,
                 position: "top"
         })
-        }
-       
+        },
+        opens() {
+            let loader = this.$loading.show({
+                  // Optional parameters
+                  container: this.fullPage ? null : this.$refs.formContainer,
+                  canCancel: true,
+                  onCancel: this.onCancel,
+                  loader: 'dots',
+                  color: 'red',
+                  width: 64,
+                  height: 64,
+                  backgroundColor: '#ffffff',
+                  opacity: 0.5,
+
+                });
+                // simulate AJAX
+                setTimeout(() => {
+                  loader.hide()
+                  this.open() 
+                },750)     
+        },
     },
     filters: {
       dollars, // Replaces old filter definition
