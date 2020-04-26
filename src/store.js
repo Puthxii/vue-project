@@ -20,10 +20,25 @@ export default new Vuex.Store({
           des: "Strawberry Jelio Smoothie. With the additional fresh Strawberry & Yogurt whipped cream vanilla honey.",
           image: 'https://images.snpfood.com/image/upload/c_fill,h_300,q_auto,w_485/v1/brands/15/inventory/products/24878--kFd3xN', price: 393 },
     ],
+    pormotionItems: [ 
+      {
+        proId: 1, src: "../public/img/pro/Banner_Food_2.jpg", link: ''
+      },
+      {
+        proId: 2, src: "../public/img/pro/Banner_Bev_2.jpg", link: ''
+      },
+      {
+        proId: 3, src: "../public/img/pro/Banner-Mar-2020-02.jpg", link: ''
+      },
+      {
+        proId: 4, src: "../public/img/pro/Banner-April-2020-02.jpg", link: ''
+      }
+    ],
     inCart: [],
   },
   getters: {
     // TODO: Add getters
+    pormotionItems: state => state.pormotionItems,
     forSale: state => state.forSale,
     inCart: state => state.inCart,
   },

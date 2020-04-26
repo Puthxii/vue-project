@@ -35,29 +35,6 @@
     </div>
     </div>
     </nav>
-    <!-- <nav role="navigation" aria-label="main navigation" class="navbar is-flex">
-    <div class="navbar-brand">
-        <a href="/en/home" class="navbar-item navbar-logo"><img src="https://snp1344.com/assets/logo-4d2e732d52431d27aa731e9027a79b532be93f9ac185ed56a0df779193b2213b.svg"></a>
-    </div>
-    <div class="navbar-menu">
-        <div class="navbar-start"><a href="https://company.snp1344.com/" target="_blank" class="navbar-item">
-          About us
-        </a> <a href="/en/pages/about" class="navbar-item is-hidden">About us</a> <a href="/en/stores" class="navbar-item">Stores</a> <a href="/en/profile?current_page=order-history" class="navbar-item">Order Tracker</a> <a href="/en/commercial_order" class="navbar-item">Corporate Clients</a></div>
-        <div class="navbar-end">
-            <div class="navbar-item">
-                <ShoppingCart />
-            </div>
-            <div class="navbar-item">
-                <button type="button" class="button-with-icon button-total-price"><span class="icon"><i class="fas fa-shopping-cart"></i></span> <span id="cart-text-button" class="text">
-              Add Food
-            </span></button>
-            </div>
-            <div class="navbar-item profile-menu"><a class="button is-secondary button-login"><span class="fas fa-user is-hidden-desktop"></span> <div class="btn-text is-hidden-touch">Sign in</div></a></div>
-            <div data-turbolinks="false" class="navbar-item navbar-flag"><span><a href="/th/home" class="flag-th inactive"><img src="https://snp1344.com/assets/th_flag-58d8c1742e46c5502d10cbf7264ed6b4bbea68476c63397e6c109dda1a74509b.svg"></a></span></div>
-        </div>
-    </div>
-    </nav>
-     -->
 </template>
 
 <script>
@@ -81,7 +58,7 @@ export default {
 
    .modal-backdrop {
     position:unset !important;
-    }
+    } 
 
   
 </style>
