@@ -26,11 +26,22 @@ import { dollars } from './filters';
 export default {
 
     name: 'item',
-    props: ['invId', 'name', 'des', 'image', 'price'],
+    props: ['invId', 'name', 'des', 'qty', 'image', 'price'],
     methods: {
         addToCart(invId) {
           this.$store.dispatch('addToCart', invId, );
-           
+          // let found = false;
+          // //Add the item or increase qty
+          // let itemInCart = this.cartItems.filter(item => item.id === invId.id);
+          // let isItemInCart = itemInCart.length > 0;
+
+          // if (isItemInCart === false) {
+          //   this.cartItems.push(Vue.util.extend({}, itemToAdd));
+          // } else {
+          //   itemInCart[0].qty += itemToAdd.qty;
+          // }
+			    // itemToAdd.qty = 1;
+          
         },
         open () { //fix
             this.$toast.open({

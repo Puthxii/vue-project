@@ -1,6 +1,6 @@
 <template>
   <div> 
-    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#shoppingCart">Cart <span class="badge badge-light">{{ numInCart }} ({{ total | dollars }})</span></button>
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#shoppingCart">Cart <span class="badge badge-light">{{ total | dollars }}</span></button>
     <div id="shoppingCart" class="modal fade">
       <!-- The rest of the modal will go here -->
         <div class="modal-dialog">
@@ -17,8 +17,8 @@
                         <tr v-for="(item, index) in cart">
                         <td>{{ item.name }}</td>
                           <td style="width:100px">
-                          <input v-model="item.qty" class="form-control input-qty" type="number">
-                        </td>
+                            <input v-model="item.qty" min="1" class="form-control input-qty" type="number" >
+                          </td>
                         <td>{{ item.price | dollars }}</td>
                       
                         <td>
@@ -26,11 +26,17 @@
                           
                         </td>
                         </tr>
-                        <tr>
+                      
+                        <tr v-show="cart.length  === 0">
+                          <th colspan="4" class="text-center">Your shopping cart is empty, Add items and go to check-out from here!</th>
+                        </tr>
+                        
+                        <tr v-show="cart.length > 0">
                           <th></th>
                           <th></th>
                           <th>{{ total | dollars }}</th>
                           <th></th>
+
                         </tr>
                     </tbody>
                 </table>
@@ -63,9 +69,16 @@ export default {
         });
       });
     },
-    total() {
-      return this.cart.reduce((acc, cur) => acc + cur.price, 0);
-    },
+    // total() {
+    //   return this.cart.reduce((acc, cur) => acc + cur.price, 0);
+    // },
+     total() {
+      let total = 0;
+      this.cart.forEach(item => {
+        total += (item.price * item.qty);
+      });
+      return total;
+    }
   },
   filters: {
     dollars,
@@ -82,7 +95,7 @@ export default {
                 dismissible: true,
                 position: "top"
         })
-        }
+    },
   },
   
 };
@@ -90,6 +103,14 @@ export default {
 <style >
   .modal-backdrop {
     position:unset !important;
+  }
+  
+</style>
+
+<style  scoped>
+  .input-qty {
+    width: 60px;
+    float: right
   }
   
 </style>
