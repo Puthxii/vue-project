@@ -34,9 +34,9 @@ export default {
         },
         open () { //fix
             this.$toast.open({
-                message: "Add to cart success",
+                message: "Your basket is updated. Ready to go!",
                 type: "success",
-                duration: 4000,
+                duration: 2500,
                 dismissible: true,
                 position: "top"
         })

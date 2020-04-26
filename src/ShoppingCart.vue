@@ -16,13 +16,18 @@
                     <tbody>
                         <tr v-for="(item, index) in cart">
                         <td>{{ item.name }}</td>
+                          <td style="width:100px">
+                          <input v-model="item.qty" class="form-control input-qty" type="number">
+                        </td>
                         <td>{{ item.price | dollars }}</td>
+                      
                         <td>
                           <button class="btn btn-sm btn-danger" @click="removeFromCart(index)">&times;</button>
                           
                         </td>
                         </tr>
                         <tr>
+                          <th></th>
                           <th></th>
                           <th>{{ total | dollars }}</th>
                           <th></th>
@@ -73,7 +78,7 @@ export default {
             this.$toast.open({
                 message: "Please login to checkout",
                 type: "warning",
-                duration: 4000,
+                duration: 2500,
                 dismissible: true,
                 position: "top"
         })
@@ -82,3 +87,9 @@ export default {
   
 };
 </script>
+<style >
+  .modal-backdrop {
+    position:unset !important;
+  }
+  
+</style>
