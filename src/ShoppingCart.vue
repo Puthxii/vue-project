@@ -1,6 +1,6 @@
 <template>
   <div> 
-    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#shoppingCart">Cart <span class="badge badge-light">{{ total | dollars }}</span></button>
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#shoppingCart"><i class="fas fa-shopping-cart"></i> <span class="badge badge-light">{{ total | dollars }}</span></button>
     <div id="shoppingCart" class="modal fade">
       <!-- The rest of the modal will go here -->
         <div class="modal-dialog">
